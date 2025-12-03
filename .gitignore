@@ -1,0 +1,91 @@
+# ============================================================
+# Remitano Data Engineer Project - .gitignore
+# ============================================================
+
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# -------------------------
+# dbt
+# -------------------------
+remitano_dwh/target/
+remitano_dwh/dbt_packages/
+remitano_dwh/logs/
+remitano_dwh/dbt_modules/
+
+# -------------------------
+# IDE / Editor
+# -------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Credentials / Sensitive Files
+# -------------------------
+*.json
+!dbt_project.json   # allow dbt manifest json if needed
+*.pem
+*.key
+.env
+.env.local
+
+# -------------------------
+# Optional: ignore raw data files (not recommended for this project)
+# Uncomment if required
+# project_root/input/*.csv
+# project_root/output/**/*.csv
+# project_root/output/**/*.json
+# project_root/output/**/*.parquet
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+
+# -------------------------
+# Jupyter Notebook
+# -------------------------
+.ipynb_checkpoints
+
+# -------------------------
+# pytest / Coverage
+# -------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+
+# -------------------------
+# mypy
+# -------------------------
+.mypy_cache/
+.dmypy.json
+dmypy.json

@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "Cleaned staging model for user transactions"
+    columns:
+      - name: txn_id
+        description: "Primary key of a transaction"
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        tests:
+          - not_null
+      - name: status
+        tests:
+          - not_null
+      - name: created_at
+        tests:
+          - not_null
+
+  - name: stg_users
+    description: "Cleaned staging model for users"
+    columns:
+      - name: user_id
+        description: "Primary key of user"
+        tests:
+          - not_null
+          - unique
+      - name: kyc_level
+        tests:
+          - not_null
+
+  - name: stg_rates
+    description: "Cleaned staging model for Binance hourly klines"
+    columns:
+      - name: symbol
+        tests:
+          - not_null
+      - name: open_time
+        tests:
+          - not_null
+      - name: close
+        tests:
+          - not_null
+      - name: open_time
+        tests:
+          - unique:
+              combination_of_columns:
+                - symbol
+                - open_time

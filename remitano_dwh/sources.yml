@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw source data loaded from ingestion step"
+    database: your_database_name
+    schema: raw
+    tables:
+      - name: transactions
+        description: "Original transactions data before transformation"
+      - name: users
+        description: "Raw users dataset"
+      - name: rates
+        description: "Binance hourly kline data fetched in ingestion step"

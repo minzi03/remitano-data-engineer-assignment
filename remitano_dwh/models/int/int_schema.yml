@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: int_user_kyc_history
+    description: "SCD2 history of user KYC levels"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+      - name: kyc_valid_from
+        tests:
+          - not_null
+
+  - name: int_rates_hourly_usd
+    description: "Hourly USD price per base currency from Binance rates"
+    columns:
+      - name: base_currency
+        tests:
+          - not_null
+      - name: open_time
+        tests:
+          - not_null
+          - unique:
+              combination_of_columns:
+                - base_currency
+                - open_time
+
+  - name: int_transactions_enriched
+    description: "Transactions enriched with USD price and KYC level at transaction time"
+    columns:
+      - name: txn_id
+        tests:
+          - not_null
+          - unique
+      - name: destination_amount_usd
+        tests:
+          - not_null

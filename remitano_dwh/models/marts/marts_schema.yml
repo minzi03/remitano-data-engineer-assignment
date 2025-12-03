@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: fct_transactions_usd
+    description: "Fact table of completed user transactions with their USD value and KYC level at time of transaction."
+    columns:
+      - name: txn_id
+        description: "Primary key of the transaction"
+        tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        tests:
+          - not_null
+
+      - name: destination_amount_usd
+        description: "Transaction amount converted to USD using hourly Binance rates"
+        tests:
+          - not_null
+
+      - name: status
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["COMPLETED"]
+
+      - name: kyc_level_at_txn
+        description: "KYC level at the exact time when the transaction occurred (SCD2 logic)"
+        tests:
+          - not_null
+
+      - name: transaction_date
+        tests:
+          - not_null
+
+      - name: transaction_month
+        tests:
+          - not_null
+
+      - name: transaction_quarter
+        tests:
+          - not_null

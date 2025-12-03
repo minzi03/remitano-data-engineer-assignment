@@ -1,0 +1,33 @@
+# -----------------------------------------
+# Remitano Data Engineer Project - Dependencies
+# -----------------------------------------
+
+# Core data processing
+pandas>=2.0.0
+numpy>=1.24.0
+python-dateutil>=2.8.2
+pytz>=2023.3
+
+# HTTP requests
+requests>=2.31.0
+
+# dbt core
+dbt-core>=1.7.0
+
+# dbt adapters (choose ONE based on your warehouse)
+# Uncomment the adapter you are using:
+
+# BigQuery (recommended for this project)
+dbt-bigquery>=1.7.0
+
+# Snowflake
+# dbt-snowflake>=1.7.0
+
+# Redshift
+# dbt-redshift>=1.7.0
+
+# Postgres (useful for local testing)
+# dbt-postgres>=1.7.0
+
+# Databricks
+# dbt-databricks>=1.7.0
